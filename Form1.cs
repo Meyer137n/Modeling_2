@@ -21,6 +21,16 @@ namespace Modeling_2
         public Form1()
         {
             InitializeComponent();
+
+            // Применяем стиль к кнопкам
+            CustomizeButton(buttonPetrovsRule1, 20, Color.LightBlue, Color.Navy);
+            CustomizeButton(buttonPetrovsRule2, 20, Color.LightGreen, Color.DarkGreen);
+            CustomizeButton(buttonPetrovsRule3, 20, Color.LightCoral, Color.DarkRed);
+            CustomizeButton(buttonPetrovsRule4, 20, Color.LightYellow, Color.Orange);
+            CustomizeButton(buttonEnumerate, 20, Color.LightSkyBlue, Color.Blue);
+            CustomizeButton(buttonRandom, 20, Color.Pink, Color.Purple);
+            CustomizeButton(buttonStartSequence, 20, Color.LightGray, Color.Black);
+
             initialDataArray = new int[N, N];
             PI1 = new double[N];
             PI2 = new double[N];
@@ -792,36 +802,35 @@ namespace Modeling_2
             return sequence;
         }
 
-        //Этот метод овечает за отрисовку графика Канта
         private void DrawProcessingTimes(List<int> posled)
         {
             g.Clear(this.BackColor);
 
-            int detailCount = N; //Количество деталей
-            int spacingBetweenLines = 20; //Промежуток между строками
-            int heightOfEachLine = 10; //Высота каждой линии
-            int baseY = 400; //Начальная координата Y для рисования
+            int detailCount = N; // Количество деталей
+            int spacingBetweenLines = 20; // Промежуток между строками
+            int heightOfEachLine = 10; // Высота каждой линии
+            int baseY = 370; // Начальная координата Y для рисования
+            int offsetX = 10; // Смещение по оси X
+
             Color[] colors = new Color[]
             {
-                Color.Red, Color.Green, Color.Blue,
-                Color.Yellow, Color.Cyan, Color.Magenta, Color.Orange
+        Color.Red, Color.Green, Color.Blue,
+        Color.Yellow, Color.Cyan, Color.Magenta, Color.Orange
             };
 
-            //Двумерный массив для хранения времён завершения обработки деталей на каждом станке
             int[,] completionTimes = new int[detailCount, detailCount];
 
             for (int machine = 0; machine < detailCount; machine++)
             {
                 int yOffset = baseY + machine * (heightOfEachLine + spacingBetweenLines);
-                int currentX = 0; //Начальная координата X для рисования
+                int currentX = offsetX; // Начальная координата X для рисования с учётом смещения
 
                 for (int count = 0; count < detailCount; count++)
                 {
-                    int detailIndex = posled[count] - 1; //Индекс детали (с 0)
-                    int processingTime = initialDataArray[detailIndex, machine] * 10; //Время * 10 (в пикселях)
+                    int detailIndex = posled[count] - 1; // Индекс детали (с 0)
+                    int processingTime = initialDataArray[detailIndex, machine] * 10; // Время * 10 (в пикселях)
 
-                    //Определяем время простоя
-                    if (machine > 0 && processingTime > 0) //Проверяем, что время обработки больше 0
+                    if (machine > 0 && processingTime > 0)
                     {
                         int previousCompletionTime = completionTimes[detailIndex, machine - 1];
                         if (currentX < previousCompletionTime)
@@ -830,14 +839,14 @@ namespace Modeling_2
 
                             if (count < detailCount - 1 || idleTime > 0)
                             {
-                                using (Brush grayBrush = new SolidBrush(Color.Gray))
+                                using (Brush grayBrush = new SolidBrush(Color.LightGray))
                                 {
                                     g.FillRectangle(grayBrush, currentX, yOffset, idleTime, heightOfEachLine);
                                 }
 
                                 if (idleTime > 0)
                                 {
-                                    string idleText = (idleTime / 10).ToString(); //Делим на 10 для отображения длины
+                                    string idleText = (idleTime / 10).ToString();
                                     using (Font font = new Font("Arial", 8))
                                     {
                                         SizeF textSize = g.MeasureString(idleText, font);
@@ -847,15 +856,14 @@ namespace Modeling_2
                                     }
                                 }
 
-                                currentX += idleTime; //Обновляем текущую координату X после простоя
+                                currentX += idleTime;
                             }
                         }
                     }
 
-                    //Определяем цвет для каждой детали и рисуем прямоугольник для времени обработки
                     using (Brush brush = new SolidBrush(colors[detailIndex % colors.Length]))
                     {
-                        if (processingTime > 0) //Проверяем, что время обработки больше 0
+                        if (processingTime > 0)
                         {
                             g.FillRectangle(brush, currentX, yOffset, processingTime, heightOfEachLine);
 
@@ -870,14 +878,10 @@ namespace Modeling_2
                         }
                     }
 
-                    //Обновляем время завершения обработки детали на текущем станке
                     completionTimes[detailIndex, machine] = currentX + processingTime;
-
-                    //Обновляем текущую координату X
                     currentX += processingTime;
                 }
 
-                //Проверяем наличие времени простоя после обработки всех деталей
                 if (currentX < completionTimes[detailCount - 1, machine])
                 {
                     int idleTimeAfterProcessing = completionTimes[detailCount - 1, machine] - currentX;
@@ -900,17 +904,17 @@ namespace Modeling_2
                     }
                 }
 
-                //Добавляем текст "Станок №" над каждой строкой
                 using (Font font = new Font("Arial", 8))
                 {
                     string machineLabel = $"Станок №{machine + 1}";
                     SizeF labelSize = g.MeasureString(machineLabel, font);
-                    float labelX = 0; //Позиция X для метки
+                    float labelX = offsetX; // Позиция X для метки с учётом смещения
                     float labelY = baseY + machine * (heightOfEachLine + spacingBetweenLines) - labelSize.Height - 3;
                     g.DrawString(machineLabel, font, Brushes.Black, labelX, labelY);
                 }
             }
         }
+
 
         //Этот метод работает с изначальной последовательностью
         private void buttonStartSequence_Click(object sender, EventArgs e)
@@ -933,6 +937,54 @@ namespace Modeling_2
             UpdateTableWithPosled(baseSequence);
             PrintTable2(baseSequence, T);
             DrawProcessingTimes(baseSequence);
+        }
+
+        private void CustomizeButton(Button button, int cornerRadius, Color backColor, Color borderColor)
+        {
+            button.FlatStyle = FlatStyle.Flat; // Убираем стандартный стиль
+            button.FlatAppearance.BorderSize = 0; // Убираем рамку
+            button.BackColor = Color.Transparent; // Прозрачный фон, так как мы будем рисовать фон вручную
+            button.Paint += (sender, e) =>
+            {
+                Graphics graphics = e.Graphics;
+                graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+                // Рисуем закругленный прямоугольник
+                using (System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath())
+                {
+                    Rectangle rect = button.ClientRectangle;
+                    rect.Inflate(-1, -1); // Уменьшаем на 1, чтобы рамка вписалась
+
+                    // Создаем закругленный прямоугольник
+                    path.AddArc(rect.X, rect.Y, cornerRadius, cornerRadius, 180, 90);
+                    path.AddArc(rect.Right - cornerRadius, rect.Y, cornerRadius, cornerRadius, 270, 90);
+                    path.AddArc(rect.Right - cornerRadius, rect.Bottom - cornerRadius, cornerRadius, cornerRadius, 0, 90);
+                    path.AddArc(rect.X, rect.Bottom - cornerRadius, cornerRadius, cornerRadius, 90, 90);
+                    path.CloseFigure();
+
+                    // Заливаем фон
+                    using (Brush brush = new SolidBrush(backColor))
+                    {
+                        graphics.FillPath(brush, path);
+                    }
+
+                    // Рисуем рамку
+                    using (Pen pen = new Pen(borderColor, 2))
+                    {
+                        graphics.DrawPath(pen, path);
+                    }
+                }
+
+                // Рисуем текст
+                TextRenderer.DrawText(
+                    graphics,
+                    button.Text,
+                    button.Font,
+                    button.ClientRectangle,
+                    button.ForeColor,
+                    TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
+                );
+            };
         }
     }
 }

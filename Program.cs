@@ -14,9 +14,8 @@ namespace Modeling_2
         [STAThread]
         static void Main()
         {
-            //ApplicationConfiguration.Initialize();
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
     }

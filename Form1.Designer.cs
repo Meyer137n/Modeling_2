@@ -101,7 +101,7 @@ namespace Modeling_2
             tableInitialData.Controls.Add(labelColumn4, 5, 0);
             tableInitialData.Controls.Add(labelColumn5, 6, 0);
             tableInitialData.Controls.Add(labelColumn6, 7, 0);
-            tableInitialData.Location = new Point(12, 40);
+            tableInitialData.Location = new Point(12, 100);
             tableInitialData.Name = "tableInitialData";
             tableInitialData.RowCount = 8;
             tableInitialData.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
@@ -288,7 +288,7 @@ namespace Modeling_2
             tableLayoutPanel1.Controls.Add(labelNumberTableP1, 0, 0);
             tableLayoutPanel1.Controls.Add(labelTableP11, 1, 0);
             tableLayoutPanel1.Controls.Add(labelTDowntimeTableP1, 0, 8);
-            tableLayoutPanel1.Location = new Point(480, 41);
+            tableLayoutPanel1.Location = new Point(480, 101);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 9;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
@@ -406,7 +406,7 @@ namespace Modeling_2
             // labelPetrovsRule
             // 
             labelPetrovsRule.AutoSize = true;
-            labelPetrovsRule.Location = new Point(480, 9);
+            labelPetrovsRule.Location = new Point(480, 110);
             labelPetrovsRule.Name = "labelPetrovsRule";
             labelPetrovsRule.Size = new Size(175, 20);
             labelPetrovsRule.TabIndex = 2;
@@ -415,7 +415,7 @@ namespace Modeling_2
             // labelInitialData
             // 
             labelInitialData.AutoSize = true;
-            labelInitialData.Location = new Point(12, 9);
+            labelInitialData.Location = new Point(12, 110);
             labelInitialData.Name = "labelInitialData";
             labelInitialData.Size = new Size(136, 20);
             labelInitialData.TabIndex = 3;
@@ -425,37 +425,37 @@ namespace Modeling_2
             // 
             buttonPetrovsRule1.Location = new Point(1169, 48);
             buttonPetrovsRule1.Name = "buttonPetrovsRule1";
-            buttonPetrovsRule1.Size = new Size(128, 29);
+            buttonPetrovsRule1.Size = new Size(128, 40);
             buttonPetrovsRule1.TabIndex = 4;
             buttonPetrovsRule1.Text = "П. Петрова №1";
             buttonPetrovsRule1.UseVisualStyleBackColor = true;
             buttonPetrovsRule1.Click += buttonPetrovsRule1_Click;
             // 
-            // buttonPetrovsRule3
-            // 
-            buttonPetrovsRule3.Location = new Point(1169, 116);
-            buttonPetrovsRule3.Name = "buttonPetrovsRule3";
-            buttonPetrovsRule3.Size = new Size(128, 29);
-            buttonPetrovsRule3.TabIndex = 5;
-            buttonPetrovsRule3.Text = "П. Петрова №3";
-            buttonPetrovsRule3.UseVisualStyleBackColor = true;
-            buttonPetrovsRule3.Click += buttonPetrovsRule3_Click;
-            // 
             // buttonPetrovsRule2
             // 
             buttonPetrovsRule2.Location = new Point(1169, 83);
             buttonPetrovsRule2.Name = "buttonPetrovsRule2";
-            buttonPetrovsRule2.Size = new Size(128, 29);
+            buttonPetrovsRule2.Size = new Size(128, 40);
             buttonPetrovsRule2.TabIndex = 6;
             buttonPetrovsRule2.Text = "П. Петрова №2";
             buttonPetrovsRule2.UseVisualStyleBackColor = true;
             buttonPetrovsRule2.Click += buttonPetrovsRule2_Click;
             // 
+            // buttonPetrovsRule3
+            // 
+            buttonPetrovsRule3.Location = new Point(1169, 116);
+            buttonPetrovsRule3.Name = "buttonPetrovsRule3";
+            buttonPetrovsRule3.Size = new Size(128, 40);
+            buttonPetrovsRule3.TabIndex = 5;
+            buttonPetrovsRule3.Text = "П. Петрова №3";
+            buttonPetrovsRule3.UseVisualStyleBackColor = true;
+            buttonPetrovsRule3.Click += buttonPetrovsRule3_Click;
+            //
             // buttonPetrovsRule4
             // 
             buttonPetrovsRule4.Location = new Point(1169, 151);
             buttonPetrovsRule4.Name = "buttonPetrovsRule4";
-            buttonPetrovsRule4.Size = new Size(128, 29);
+            buttonPetrovsRule4.Size = new Size(128, 40);
             buttonPetrovsRule4.TabIndex = 7;
             buttonPetrovsRule4.Text = "П. Петрова №4";
             buttonPetrovsRule4.UseVisualStyleBackColor = true;
@@ -465,7 +465,7 @@ namespace Modeling_2
             // 
             buttonEnumerate.Location = new Point(1169, 221);
             buttonEnumerate.Name = "buttonEnumerate";
-            buttonEnumerate.Size = new Size(128, 29);
+            buttonEnumerate.Size = new Size(128, 40);
             buttonEnumerate.TabIndex = 8;
             buttonEnumerate.Text = "Перебор";
             buttonEnumerate.UseVisualStyleBackColor = true;
@@ -475,7 +475,7 @@ namespace Modeling_2
             // 
             buttonRandom.Location = new Point(1169, 186);
             buttonRandom.Name = "buttonRandom";
-            buttonRandom.Size = new Size(128, 29);
+            buttonRandom.Size = new Size(128, 40);
             buttonRandom.TabIndex = 9;
             buttonRandom.Text = "Сл. послед.";
             buttonRandom.UseVisualStyleBackColor = true;
@@ -485,17 +485,29 @@ namespace Modeling_2
             // 
             buttonStartSequence.Location = new Point(1169, 256);
             buttonStartSequence.Name = "buttonStartSequence";
-            buttonStartSequence.Size = new Size(128, 29);
+            buttonStartSequence.Size = new Size(128, 40);
             buttonStartSequence.TabIndex = 10;
             buttonStartSequence.Text = "Исх. послед.";
             buttonStartSequence.UseVisualStyleBackColor = true;
             buttonStartSequence.Click += buttonStartSequence_Click;
+            //
+            //
+            //
+            buttonPetrovsRule1.Location = new Point(12, 30);
+            buttonPetrovsRule2.Location = new Point(150, 30);
+            buttonPetrovsRule3.Location = new Point(288, 30);
+            buttonPetrovsRule4.Location = new Point(426, 30);
+            buttonEnumerate.Location = new Point(564, 30);
+            buttonRandom.Location = new Point(702, 30);
+            buttonStartSequence.Location = new Point(840, 30);
+            tableInitialData.Location = new Point(12, 150);
+            tableLayoutPanel1.Location = new Point(480, 150);
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1782, 953);
+            ClientSize = new Size(1600, 1300);
             Controls.Add(buttonStartSequence);
             Controls.Add(buttonRandom);
             Controls.Add(buttonEnumerate);
