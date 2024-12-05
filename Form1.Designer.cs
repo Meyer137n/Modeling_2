@@ -520,7 +520,7 @@ namespace Modeling_2
             Controls.Add(tableLayoutPanel1);
             Controls.Add(tableInitialData);
             Name = "Form1";
-            Text = "Модель задачи упорядочения NxM";
+            Text = "Задачи упорядочения NxM";
             tableInitialData.ResumeLayout(false);
             tableInitialData.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);

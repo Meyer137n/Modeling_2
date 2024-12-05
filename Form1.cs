@@ -814,8 +814,8 @@ namespace Modeling_2
 
             Color[] colors = new Color[]
             {
-        Color.Red, Color.Green, Color.Blue,
-        Color.Yellow, Color.Cyan, Color.Magenta, Color.Orange
+        Color.Red, Color.DarkOrange, Color.Gold,
+        Color.ForestGreen, Color.Cyan, Color.DodgerBlue, Color.BlueViolet
             };
 
             int[,] completionTimes = new int[detailCount, detailCount];
