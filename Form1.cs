@@ -802,6 +802,7 @@ namespace Modeling_2
             return sequence;
         }
 
+        //График Ганта
         private void DrawProcessingTimes(List<int> posled)
         {
             g.Clear(this.BackColor);

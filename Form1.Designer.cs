@@ -410,7 +410,7 @@ namespace Modeling_2
             labelPetrovsRule.Name = "labelPetrovsRule";
             labelPetrovsRule.Size = new Size(175, 20);
             labelPetrovsRule.TabIndex = 2;
-            labelPetrovsRule.Text = "По правилу Петрова №";
+            labelPetrovsRule.Text = "По принципу ...";
             // 
             // labelInitialData
             // 
