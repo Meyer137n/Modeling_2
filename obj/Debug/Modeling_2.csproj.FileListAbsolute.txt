@@ -1,0 +1,10 @@
+C:\Users\taych\OneDrive\Рабочий стол\Modeling_2\bin\Debug\Modeling_2.exe.config
+C:\Users\taych\OneDrive\Рабочий стол\Modeling_2\bin\Debug\Modeling_2.exe
+C:\Users\taych\OneDrive\Рабочий стол\Modeling_2\bin\Debug\Modeling_2.pdb
+C:\Users\taych\OneDrive\Рабочий стол\Modeling_2\obj\Debug\Modeling_2.csproj.AssemblyReference.cache
+C:\Users\taych\OneDrive\Рабочий стол\Modeling_2\obj\Debug\Modeling_2.csproj.SuggestedBindingRedirects.cache
+C:\Users\taych\OneDrive\Рабочий стол\Modeling_2\obj\Debug\Modeling_2.Properties.Resources.resources
+C:\Users\taych\OneDrive\Рабочий стол\Modeling_2\obj\Debug\Modeling_2.csproj.GenerateResource.cache
+C:\Users\taych\OneDrive\Рабочий стол\Modeling_2\obj\Debug\Modeling_2.csproj.CoreCompileInputs.cache
+C:\Users\taych\OneDrive\Рабочий стол\Modeling_2\obj\Debug\Modeling_2.exe
+C:\Users\taych\OneDrive\Рабочий стол\Modeling_2\obj\Debug\Modeling_2.pdb
